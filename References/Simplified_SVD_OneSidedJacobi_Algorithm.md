@@ -104,13 +104,12 @@ signo <- function(...){
 
 Dada una matriz $ A \in \mathbb{R}^{m \times n}$ y su descomposición SVD, dado por las consabidas matrices $U \in \mathbb{R}^{m \times m}$, $\Sigma\in \mathbb{R}^{m \times n}$ y $V \in \mathbb{R}^{n \times n}$, así como un vector $b \in \mathbb{R}^m$. Formar una función *solver* que devuelva la soluci´on el sistema lineal $Ax=b$ a través del siguiente procediemiento:
 
-* Formar a la matriz $W:= U \Sigma$ (de manera externa a la función)
-* Resolver el sistema de ecuaciones $$ Wd = b$$, empleando alguna de las librerías [backsolve/forwardsolve](https://stat.ethz.ch/R-manual/R-devel/library/base/html/backsolve.html) de R.
+* Resolver el sistema de ecuaciones $$ \Sigma d = U^T b$$, empleando alguna de las librerías [backsolve/forwardsolve](https://stat.ethz.ch/R-manual/R-devel/library/base/html/backsolve.html) de R.
 * Formar al vector $x:=Vd$ la cual será solución del sistema $Ax=b$.
 
 **Notas:** 
 
-* La matrices $W$, $V$ deben ser parte de las entradas la función.
+* La matrices $U$, $\Sigma$, $V$ deben ser parte de las entradas la función.
 
 Por favor, incluir la documentación correspondiente (ver chuck en el numeral 1.1).
 
@@ -191,7 +190,8 @@ Mientras k <= maxsweeps o bien num_columnas_ortogonales<= n(n+1)/2:
         V_{lj}^k <- sn*temp + cs*A_{lj}^k #V_{lj}^k es valor l-esimo de columna j de A^k
       
       k <- k+1 # Actualiza contador de sweeps
-      W <- A^k # Actualizar matriz aproximacion de W=U*Sigma
+      {\sigma_1, \sigma_2, ..., \sigma_r} <- normas de columnas de A^k # Estimar valores singulares con normas de columnas de A^k
+      U <- A^k con columnas normalizadas # Estimar U con normalizando en norma 2 a las columnas de A^k
 `````````````````
 
 **Notas:**
@@ -205,9 +205,9 @@ Mientras k <= maxsweeps o bien num_columnas_ortogonales<= n(n+1)/2:
 
 Dada una matriz $ A \in \mathbb{R}^{m \times n}$ así como un vector $b \in \mathbb{R}^m$ y su descomposición SVD, crear una función *SVD_solver* que permita aproximar la soluci´on el sistema lineal $Ax=b$.
 
-* Estimar  la descomposición SVD de $A$ está dada por matrices $U \in \mathbb{R}^{m \times m}$, $\Sigma\in \mathbb{R}^{m \times n}$ y $V \in \mathbb{R}^{n \times n}$,  obteniendo versiones numéricas de 1) $V$ y 2) $W:=U \Sigma$, con procedimiento descrito en 2.1, mediante la función *SVD_jacobi*.
+* Estimar  la descomposición SVD de $A$ está dada por matrices $U \in \mathbb{R}^{m \times m}$, $\Sigma\in \mathbb{R}^{m \times n}$ y $V \in \mathbb{R}^{n \times n}$,  obteniendo versiones numéricas de $V$, $U$ y $\Sigma$, con procedimiento descrito en 2.1, mediante la función *SVD_jacobi*.
 * A partir de este punto y la implementación realizada en 1.4:
-  * Resolver el sistema de ecuaciones $$ Wd = b$$, empleando alguna de las librerías [backsolve/forwardsolve](https://stat.ethz.ch/R-manual/R-devel/library/base/html/backsolve.html) de R.
+  * Resolver el sistema de ecuaciones $$ \Sigma  d = U^T b$$, empleando alguna de las librerías [backsolve/forwardsolve](https://stat.ethz.ch/R-manual/R-devel/library/base/html/backsolve.html) de R.
   * Formar al vector $x:=Vd$ la cual será solución del sistema $Ax=b$.
 
 **Notas:** 
