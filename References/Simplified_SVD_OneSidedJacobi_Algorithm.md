@@ -228,3 +228,11 @@ SVD_solver <- function(...){
   
 }
 ```
+
+## Anexo
+
+Ejemplo de documentación de función en R:
+
+![Documentacion funcion en R](/Users/cesar/github/ex-modulo-3-comp-matricial-svd-czammar/References/Images/docs_functionR.png)
+
+Véase https://github.com/ITAM-DS/analisis-numerico-computo-cientifico/blob/master/temas/I.computo_cientifico/1.7.Reescribir_funciones_a_C%2B%2B_Rcpp.ipynb
