@@ -95,7 +95,7 @@ Cabe destacar que una ves solucionado el issue correspondiente, se borró la ram
 A efecto de que el **E-Prog** , **E-Rev** y **PM** tuvieran un entorno común de trabajo para el desarrollo del proyecto, se empleó la imagen de docker basada en R del curso MNO 2020 (palmoreck/jupyterlab_r_kernel:1.1.0)
 
 ```bash
-docker run --rm -v ($pwd):/datos --name jupyterlab_r_kernel_local\
+docker run --rm -v `pwd`:/datos --name jupyterlab_r_kernel_local\
 -p 8888:8888 -d palmoreck/jupyterlab_r_kernel:1.1.0
 ```
 
@@ -105,7 +105,9 @@ Con ello se habilitó la posibilidad de realizar el trabajo mediante sucesivos *
 
 La organización del proyecto se realizó a través una serie de carpetas, entre las cuales destacan:
 
-+ hola
++ **jupyter:** implementación del método de eliminación por bloques para resolver sistemas lineales, usando el solver que emplea la descomposición SVD de los sistemas lineales inducidos por los bloques (según lo descrito en numerales 1 a 4 del **Roadmap** mencionado en el apartado de [Overview](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar/blob/master/README.md#overview)). Cabe destacar que éste fue modificado a raíz de los reportes de revisión del **E-Rev** (ver siguiente carpeta).
++ **test:** contiene una serie de reportes de revisión del código desarrollado por  **E-Prog** (ver carpeta previa), en formato **Jupyter Notebooks** sobre del código implementado en la carpeta *jupyter*, incluyendo las pruebas realizadas, así como los principales, hallazgos y sugerencias.
++ **results**: incluye el reporte ejecutivo de resultados obtenidos con la implementación del método de eliminación por bloques para resolver sistemas lineales, usando el solver que emplea la descomposición SVD de los sistemas lineales inducidos por los bloques, junto con una subcarpeta de experimentos numéricos que le dan sustento.
 
 En complemento, se presenta una version esquemática de la organización de repositorio del proyecto:
 
