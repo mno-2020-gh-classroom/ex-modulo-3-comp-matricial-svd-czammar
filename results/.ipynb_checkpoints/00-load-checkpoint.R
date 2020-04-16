@@ -102,7 +102,7 @@ svd_jacobi_aprox <- function(A,TOL,maxsweep){
 
 ## 2.2 Linear solver aproximating SVD decomposition using One-sided Jacobi algorithm
 
-sel_solver<-function(A,b,TOL=10**-8,maxsweep){
+sel_solver<-function(A,b,TOL=10**-8,maxsweep=20){
     # Aproxima la solución de un sistema de ecuaciones lineales (SEL) de la forma Ax=b 
     # usando la descomposición SVD de A obtenido por medio del método de One-sided Jacobi.
     # Args: 

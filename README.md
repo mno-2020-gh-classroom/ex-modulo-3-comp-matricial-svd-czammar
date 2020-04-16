@@ -61,35 +61,56 @@ En este sentido, el proyecto gira en torno al desarrollo de siguientes ejes:
 3. **Solver de un sistema lineal usando descomposición SVD**
 4. **Método de eliminación por bloques para resolver sistemas lineales:** usando el solver que emplea la descomposición SVD de los sistemas lineales inducidos por los bloques.
 
+## Organización
+
+Para el desarrollo del proyecto, los integrantes se agruparon en torno a dos equipos; uno encargado de la implementación de los diferentes métodos y algoritmos (**Equipo de Programación, o simplemente E-Prog**) y otro más encargado probar los métodos del E-Prog con diferentes parámetros y generar reportes de resultados con las variaciones de los parámetros (**Equipo de Revisión, o simplemente E-Rev**). Ambos equipos fueron coordinados por un project manager (**PM**).
+
+La división anterior se puede resumir mediante la siguiente tabla:
+
+| #    | Rol                   | Persona      | Github    |
+| ---- | --------------------- | ------------ | --------- |
+| 1    | Grupo de programación | Danahi       | Danahirmt |
+| 2    | Grupo de programación | Miguel       | Millan13  |
+| 3    | Grupo de programación | Juan Pablo   | Pilo1961  |
+| 4    | Grupo de revisión     | Dorely       | DorelyMS  |
+| 5    | Grupo de revisión     | Javier       | valencig  |
+| 6    | Grupo de revisión     | Leon         | lgarayva  |
+| 7    | Project Manager       | César Zamora | czammar   |
+
+Esencialmente, para realizar el trabajo correspondiente se empleó el [project board de Github](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar/projects), en donde se crearon dos proyectos, juntos con sus milestones que sirvieron para agrupar los issues que cada integrante debía resolver. 
+
+En este sentido, el [primer proyecto](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar/projects/1) es relativo a los numerales 1 a 4 del **Roadmap** mencionado en el apartado de [Overview](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar/blob/master/README.md#overview). En tanto el [segundo proyecto](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar/projects/2) al desarrollo del reporte de resultados.
+
 ## Flujo de trabajo en Github
 
-grupo de programación, grupo de revisión y una persona project manager
-
-
-
-Este proyecto ha sido desarrollado de forma colaborativa, en donde cada unos de los equipos se ha encargo de implementar módulos de código que permiten [pendiente: desarrollo]
-
-Para re
-
-
+Para facilitar el sido desarrollado de forma colaborativa entre **E-Prog** , **E-Rev** y **PM**, se siguió un *Github flow*, consistente, en líneas generales, en la creación de ramas para resolver un issues específico, para solicitar la revisión del PM a través de un *Pull request*, y su posterior aprobación para unir los cambios hacia la rama *master*.
 
 ![gitflow](./images/gitflow.png)
 
 **Fuente:** Notas del curso *Programación para Ciencia de Datos* de la Maestría en Ciencia de Datos del ITAM (2019). Véase https://github.com/ITAM-DS/programming-for-data-science-2019/blob/master/handbook.pdf
 
+Cabe destacar que una ves solucionado el issue correspondiente, se borró la rama asociada para facilitar el entendimineto y administración del proyecto.
+
 ## Requerimientos de infraestructura
-A efecto de que el equipo de programación y revisión tuviera un entorno común de trabajo para el desarrollo del proyecto, se empleó la imagen de docker basada en R del curso MNO 2020 (palmoreck/jupyterlab_r_kernel:1.1.0)
+A efecto de que el **E-Prog** , **E-Rev** y **PM** tuvieran un entorno común de trabajo para el desarrollo del proyecto, se empleó la imagen de docker basada en R del curso MNO 2020 (palmoreck/jupyterlab_r_kernel:1.1.0)
 
 ```bash
-docker run --rm -v ($pwd):/datos --name jupyterlab_r_kernel_local -p 8888:8888 -d palmoreck/jupyterlab_r_kernel:1.1.0
+docker run --rm -v ($pwd):/datos --name jupyterlab_r_kernel_local\
+-p 8888:8888 -d palmoreck/jupyterlab_r_kernel:1.1.0
 ```
 
-Con ello se habilitó la posibilidad de realizar el trabajo mediante *Jupyter Notebooks*.
+Con ello se habilitó la posibilidad de realizar el trabajo mediante sucesivos *Jupyter Notebooks*.
 
-## Project Organization
+## Organización del proyecto
+
+La organización del proyecto se realizó a través una serie de carpetas, entre las cuales destacan:
+
++ hola
+
+En complemento, se presenta una version esquemática de la organización de repositorio del proyecto:
 
 ```bash
-├── README.md            <- Some text
+├── README.md            <- Archivo readme del proyecto
 ├── References           <- Carpeta de materiales usados para desarrollo del proyecto
 │   ├── 3.3.d.SVD.ipynb  <- Makefile with commands like `make data` or `make train`
 │   ├── Images
@@ -98,7 +119,7 @@ Con ello se habilitó la posibilidad de realizar el trabajo mediante *Jupyter No
 │   └── Simplified_SVD_OneSidedJacobi_Algorithm.md
 ├── jupyter
 │   └── Ex_CM_SVD.ipynb
-├── results               <- Carpeta de resultados
+├── results               <- Contiene el reporte ejecutivo de resultados
 ├── test                  <- Reportes derivados de issues del Equipo de Revisión
 │   ├── Rev_FuncionSigno.ipynb
 │   ├── Rev_GeneracionIndices.ipynb
