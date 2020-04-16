@@ -5,7 +5,7 @@ El propósito de este proyecto es consolidar una **implementación del método d
 
 ## Tabla de contenido
 
-1. [Introduction](https://github.com/dssg/usal_echo#introduction)
+1. [Introduction](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar/blob/master/README.md#introducción)
 2. [Overview](https://github.com/dssg/usal_echo#overview)
 
 ## Introducción 
