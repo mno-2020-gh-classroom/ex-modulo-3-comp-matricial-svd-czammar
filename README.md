@@ -47,7 +47,7 @@ Para re
 
 
 
-![](/Users/cesar/github/ex-modulo-3-comp-matricial-svd-czammar/images/gitflow.png)
+![gitflow](./images/gitflow.png)
 
 **Fuente:** Notas del curso *Programación para Ciencia de Datos* de la Maestría en Ciencia de Datos del ITAM (2019). Véase https://github.com/ITAM-DS/programming-for-data-science-2019/blob/master/handbook.pdf
 
