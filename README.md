@@ -6,7 +6,7 @@ El propósito de este proyecto es consolidar una **implementación del método d
 ## Tabla de contenido
 
 1. [Introduction](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar/blob/master/README.md#introducción)
-2. [Overview](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar/blob/master/README.md#introducción#overview)
+2. [Overview](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar/blob/master/README.md#overview)
 
 ## Introducción 
 
@@ -24,11 +24,11 @@ Estas ideas fueron exploraras en el presente proyecto, para la implementación l
 
 El método de eliminación por bloques consiste en obtener solución a un sistema lineal $Ax=b$ pensando en que $A$, $b$ y $x$ se puede dividir en términos bloques, $A_{11}$,$A_{12}$,$A_{21}$ y $A_{22}$, $b_1$ y $b_2$ junto con $x_1$ y $x_2$, tal como se aprecia en la siguiente imagen:
 
-![bloques](/Users/cesar/github/ex-modulo-3-comp-matricial-svd-czammar/images/bloques.png)
+![bloques](./images/bloques.png)
 
 En el caso de que $A_{11}$ sea invertible (no singular), las ecuaciones inducidas por los bloques se pueden resolver como sigue:
 
-1. Si conocemos $x_2$, entonces de la primera ecuación de bloques $A_{11}x_1 + A_{12}x_2 = b_1$ podemos obtener $x_1$ al resolver el sistema $A_{11} x_1 = b_1-A_{12}x_2$ o de modo equivalente $x_1 = A_{11}^{-1}(b_1-A_{12}x_2)$, que es un sistema lineal de menores dimensiones.
+1. Si conocemos $x_2$, entonces de la primera ecuación de bloques![A_{11}x_1 + A_{12}x_2 = b_1](https://render.githubusercontent.com/render/math?math=A_%7B11%7Dx_1%20%2B%20A_%7B12%7Dx_2%20%3D%20b_1)podemos obtener $x_1$ al resolver el sistema $A_{11} x_1 = b_1-A_{12}x_2$ o de modo equivalente $x_1 = A_{11}^{-1}(b_1-A_{12}x_2)$, que es un sistema lineal de menores dimensiones.
 2. Por otro lado, haciendo los cálculos, de la segunda ecuación por bloques se sigue que $S x_2 = b_2 - A_{21}A_{11}^{-1}b_1$, en donde a) $S := A_{22}-A_{21}A_{11}^{-1}A_{12}$ se conoce como el **complemento de Schur** del bloque $A_{11}$ en $A$, y b) $S$ es no singular si y sólo si $A$ es no singular. Así para estimar $x_2$, basta resolver $S x_2 = b_2 - A_{21}A_{11}^{-1}b_1$ que es un sistema más pequeño.
 3. La solución del sistema $Ax=b$ se obtiene en términos de $x_1$ y $x_2$.
 
