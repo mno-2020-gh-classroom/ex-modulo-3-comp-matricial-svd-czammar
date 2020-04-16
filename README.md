@@ -112,23 +112,37 @@ La organización del proyecto se realizó a través una serie de carpetas, entre
 En complemento, se presenta una version esquemática de la organización de repositorio del proyecto:
 
 ```bash
-├── README.md            <- Archivo readme del proyecto
-├── References           <- Carpeta de materiales usados para desarrollo del proyecto
-│   ├── 3.3.d.SVD.ipynb  <- Makefile with commands like `make data` or `make train`
-│   ├── Images
-│   ├── Minutas
-│   ├── Readme.md
-│   └── Simplified_SVD_OneSidedJacobi_Algorithm.md
-├── jupyter
-│   └── Ex_CM_SVD.ipynb
-├── results               <- Contiene el reporte ejecutivo de resultados
-├── test                  <- Reportes derivados de issues del Equipo de Revisión
-│   ├── Rev_FuncionSigno.ipynb
-│   ├── Rev_GeneracionIndices.ipynb
-│   ├── Rev_Generacion_de_Indices.ipynb
-│   ├── Rev_One-sided_Jacobi.ipynb
-│   ├── Rev_Solver_SVD.ipynb
-│   ├── Rev_VerifOrtogonalidad.ipynb
-│   └── Rev_parte2_One-sided_Jacobi.ipynb
+├── OLD_README.md           <- Archivo readme del examen
+├── README.md               <- Archivo readme del proyecto
+├── References              <- Carpeta de referencias y materiales usados en el proyecto
+│   ├── 2015-02_Becka_Oksa_Vajtersic.pdf
+│   ├── 3.3.d.SVD.ipynb     <- Notas sobre SVD del curso MNO 2020
+│   ├── Images              <- Carpeta de imagenes
+│   ├── Minutas             <- Minutas de reuniones entre E-Prog, E-Rev y PM
+│   ├── Readme.md           <- Archivo readme de carpeta references
+│   └── Simplified_SVD_OneSidedJacobi_Algorithm.md <- Draft sobre implementación
+├── images                  <- Carpeta de imagenes para readme
+├── jupyter                 <- Carpeta de implementación desarrollada por E-Prog
+│   └── Ex_CM_SVD.ipynb     <- Implementación de metodos de Roadmap
+├── results                 <- Carpeta de reporte ejecutivo de resultados
+│   ├── 00-load.R    <- Script de funciones de Eliminacion por Bloques y Solver SVD
+│   ├── Reporte_resultados.ipynb    <- Reporte ejecutivo de resultados
+│   ├── experimentos    <- Carpeta de experimentos para reporte de resultados
+│   └── utils.R    <- Script de funciones auxiliares de E-Prog
+└── test       <- Carpeta de reportes de revision E-Rev
+    ├── Rev_EliminacionXBloques_SVD.ipynb
+    ├── Rev_FuncionSigno.ipynb
+    ├── Rev_GeneracionIndices.ipynb
+    ├── Rev_Generacion_de_Indices.ipynb
+    ├── Rev_One-sided_Jacobi.ipynb
+    ├── Rev_One-sided_Jacobi_2.2.ipynb
+    ├── Rev_SolverDescSVD.ipynb
+    ├── Rev_Solver_SVD.ipynb
+    ├── Rev_VerifOrtogonalidad.ipynb
+    ├── Rev_parte2_One-sided_Jacobi.ipynb
+    └── Test_Final.ipynb
+
 ```
+
+
 
