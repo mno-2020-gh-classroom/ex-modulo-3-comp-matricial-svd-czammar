@@ -36,20 +36,30 @@ Con este procedimiento reducimos el problema de hallar la solución de un sistem
 
 **Algoritmo de One-Sided Jacobi para descomposición SVD**
 
-La factorización SVD de una matriz $A\in \mathbb{R}^m \times \mathbb{R}^n$, consiste en encontrar matrices $U \in \mathbb{R}^m \times \mathbb{R}^n$, $\Sigma \in \mathbb{R}^n \times \mathbb{R}^n$ y  $V \in \mathbb{R}^m \times \mathbb{R}^n$
+Por resultados de álgebra lineal y análisis matemático, se sabe que para una matriz ![$A \in \mathbb{R}^{mxn}$](https://render.githubusercontent.com/render/math?math=A%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bmxn%7D&mode=inline) es posible encontrar una factorización de ésta en términos de matrices ![$U \in \mathbb{R}^{mxm}, V \in \mathbb{R}^{nxn}$](https://render.githubusercontent.com/render/math?math=U%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bmxm%7D%2C%20V%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bnxn%7D&mode=inline) ortogonales tales que: ![$A = U\Sigma V^T$](https://render.githubusercontent.com/render/math?math=A%20%3D%20U%5CSigma%20V%5ET&mode=inline) con ![$\Sigma = diag(\sigma_1, \sigma_2, \dots, \sigma_p) \in \mathbb{R}^{mxn}$](https://render.githubusercontent.com/render/math?math=%5CSigma%20%3D%20diag%28%5Csigma_1%2C%20%5Csigma_2%2C%20%5Cdots%2C%20%5Csigma_p%29%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bmxn%7D&mode=inline), ![$p = \min\{m,n\}$](https://render.githubusercontent.com/render/math?math=p%20%3D%20%5Cmin%5C%7Bm%2Cn%5C%7D&mode=inline) y ![$\sigma_1 \geq \sigma_2 \geq \dots \geq \sigma_p \geq 0$](https://render.githubusercontent.com/render/math?math=%5Csigma_1%20%5Cgeq%20%5Csigma_2%20%5Cgeq%20%5Cdots%20%5Cgeq%20%5Csigma_p%20%5Cgeq%200&mode=inline).
 
-Esta se puede aproximar con un método iterativo conocido como el **algoritmo One-Sided Jacobi** que se basa en la aplicación sucesiva de rotaciones de Givens, para ortogonalizar las columnas de las matrices involucradas, así como estimar los respectivos valores singulares.
+**Nota:** Existen representaciones alternas dicha factorización, pero similarmente tales se basan en encontrar matrices ortogonales asociadas al dominio y condominio de $A$, junto con sus valores singulares. Véase https://en.wikipedia.org/wiki/Singular_value_decomposition#Reduced_SVDs
 
+Para obtener versiones numéricas de la descomposición SVD de una matriz existe un método iterativo conocido como el **algoritmo One-Sided Jacobi** que se basa en la aplicación sucesiva de rotaciones de Givens, para ortogonalizar las columnas de las matrices involucradas, así como estimar los respectivos valores singulares. En concreto, la idea en que se basa tal método es multiplicar a la matriz ![$A \in \mathbb{R}^{m \times n}$](https://render.githubusercontent.com/render/math?math=A%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bm%20%5Ctimes%20n%7D&mode=inline) por la derecha de forma repetida por matrices ortogonales de nombre **rotaciones Givens** hasta que se converja a ![$U \Sigma$](https://render.githubusercontent.com/render/math?math=U%20%5CSigma&mode=inline).
 
+**Solución de un sistema lineal usando descomposición SVD**
 
-Por tales motivos, este proyecto también aborda la implementación del **algoritmo One-Sided Jacobi** para aproximar numéricamente la descomposición en valores singulares de una matriz (SVD, por sus siglas en ingles), aprovechando sus propiedades para resolver un sistema lineal específico, junto con su aplicación inmediata para llevar a cabo el método de eliminación por bloques.
+Si conocemos la descomposición SVD de una matriz $A$, podemos resolver un sistema lineal $Ax=b$ como sigue
+
+a) **Descomposición SVD:** Estimar factores ![$U, \Sigma, V$](https://render.githubusercontent.com/render/math?math=U%2C%20%5CSigma%2C%20V&mode=inline) tales que ![$A=U \Sigma V^T$](https://render.githubusercontent.com/render/math?math=A%3DU%20%5CSigma%20V%5ET&mode=inline).
+
+b) **Solución de sistema intermedio:** resolver el sistema diagonal ![$\Sigma d = U^Tb$](https://render.githubusercontent.com/render/math?math=%5CSigma%20d%20%3D%20U%5ETb&mode=inline). Este paso se puede hacer con solución hacia delante o atrás, puesto que es un sistema diagonal.
+
+c) **Armado de solución de sistema original:** hacer la multiplicación matriz vector para obtener ![$x$](https://render.githubusercontent.com/render/math?math=x&mode=inline): ![$x=Vd$](https://render.githubusercontent.com/render/math?math=x%3DVd&mode=inline).
+
+**Roadmap**
 
 En este sentido, el proyecto gira en torno al desarrollo de siguientes ejes:
 
-1. 
-2. **Algoritmo One-sided Jacobi y descomposición SVD:** 
-3. **Solver de sistemas lineales a partir**
-4. **Método de eliminación por bloques para resolver sistemas lineales:** [pendiente: desarrollo].
+1. **Funciones auxiliares:** se trata de una serie de funciones atómicas en R que serán base del resto de los algoritmos (por ejemplo, la función signo, función que determina si dos vectores son ortogonales, entre otras).
+2. **Algoritmo One-sided Jacobi y descomposición SVD:** implementación de este método iterativo para obtener la descomposición en valores singulares de una matriz arbitraria.
+3. **Solver de un sistema lineal usando descomposición SVD**
+4. **Método de eliminación por bloques para resolver sistemas lineales:** usando el solver que emplea la descomposición SVD de los sistemas lineales inducidos por los bloques.
 
 ## Flujo de trabajo en Github
 
