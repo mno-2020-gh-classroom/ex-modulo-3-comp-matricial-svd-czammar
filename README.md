@@ -6,34 +6,50 @@ El propósito de este proyecto es consolidar una **implementación del método d
 ## Tabla de contenido
 
 1. [Introduction](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar/blob/master/README.md#introducción)
-2. [Overview](https://github.com/dssg/usal_echo#overview)
+2. [Overview](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar/blob/master/README.md#introducción#overview)
 
 ## Introducción 
 
-Al tratar de encontrar la solución de sistemas lineales de tamaño considerable, una estrategia interesante es recurrir a métodos que intercambien el problema original por hallar la respuesta de una serie de sistemas de ecuaciones de menor dimensión, en los que  se cuente con otras técnicas que nos permitan encontrar su solución para posteriormente armar la solución del sistema que originalmente era de ínterés. Tal idea es en la que se apoya el método de eliminación por bloques para la solución de un sistema lineal, echando mano de que la inversa de una matriz se puede escribir en términos de sus bloques a través de la fórmula del complemento de Schur.
+Al tratar de encontrar la solución de sistemas lineales de tamaño considerable, una estrategia interesante es recurrir a métodos que intercambien el problema original por hallar la respuesta de una serie de sistemas de ecuaciones de menor dimensión, que puedan ser resueltos con otras técnicas y cuyas soluciones permitan armar la solución del sistema que originalmente era de ínterés. 
 
-Sin embargo, ello implica tener que invertir bloques más pequeños de la matriz, o equivalentemente resolver sistemas lineales asociados a estos.
+Por otro lado, la descomposición SVD de una matriz $A$ consiste hallar una factorización de ésta en términos de dos matrices ortonormales U y V asociadas a su dominio y co-dominio, junto con una matriz diagonal $\Sigma$ cuyas entradas se encuentra determinadas por los **valores singulares** de $A$. En el contexto de un problema de resolver un sistema $Ax=b$, dicha estructura se puede aprovechar para usar la estructura de las matrices $U$, $V$ y $\Sigma$, para replantear el sistema original, en otro más sencillo que se puede resolver con sustitución atrás/adelante, para posteriorme recuperar la solución de interés con una multiplicación *matriz-vector*.
 
-Para ello, es útil la descomposición SVD de una matriz, pues una vez conocida se puede explorar con el propósito de hallar la solución de cualquier sistema lineal asociado a esta, pues al encontrarse en términos de matrices ortogonales y diagonales, se puede aprovechar su estructura para replantear un sistema en uno que puede resolver con sustitución hacia adelante o atrás. Ello se puede lograr, por ejemplo, con la del **algoritmo One-Sided Jacobi** para aproximar numéricamente la descomposición SVD.
+Así pues, para implementar la solución de sistemas lineales la implementación a través del método de eliminación por bloques, se puede  método que echar mano de la factorización SVD para dar solución a los sistemas lineales de menor dimensión que resultar de re-expresar el problema en términos de sus correspondientes bloques.
+
+Estas ideas fueron exploraras en el presente proyecto, para la implementación llevada a cabo del método de eliminación por bloques.
 
 ## Overview
 
-Para dar solución a un sistema lineal $Ax=b$ con el método de eliminación por bloques se debe:
+**Método de eliminación por bloques**
 
-* 1) dividir una matriz en bloques, 
-* 2) re-expresar el 
+El método de eliminación por bloques consiste en obtener solución a un sistema lineal $Ax=b$ pensando en que $A$, $b$ y $x$ se puede dividir en términos bloques, $A_{11}$,$A_{12}$,$A_{21}$ y $A_{22}$, $b_1$ y $b_2$ junto con $x_1$ y $x_2$, tal como se aprecia en la siguiente imagen:
+
+![bloques](/Users/cesar/github/ex-modulo-3-comp-matricial-svd-czammar/images/bloques.png)
+
+En el caso de que $A_{11}$ sea invertible (no singular), las ecuaciones inducidas por los bloques se pueden resolver como sigue:
+
+1. Si conocemos $x_2$, entonces de la primera ecuación de bloques $A_{11}x_1 + A_{12}x_2 = b_1$ podemos obtener $x_1$ al resolver el sistema $A_{11} x_1 = b_1-A_{12}x_2$ o de modo equivalente $x_1 = A_{11}^{-1}(b_1-A_{12}x_2)$, que es un sistema lineal de menores dimensiones.
+2. Por otro lado, haciendo los cálculos, de la segunda ecuación por bloques se sigue que $S x_2 = b_2 - A_{21}A_{11}^{-1}b_1$, en donde a) $S := A_{22}-A_{21}A_{11}^{-1}A_{12}$ se conoce como el **complemento de Schur** del bloque $A_{11}$ en $A$, y b) $S$ es no singular si y sólo si $A$ es no singular. Así para estimar $x_2$, basta resolver $S x_2 = b_2 - A_{21}A_{11}^{-1}b_1$ que es un sistema más pequeño.
+3. La solución del sistema $Ax=b$ se obtiene en términos de $x_1$ y $x_2$.
+
+Con este procedimiento reducimos el problema de hallar la solución de un sistema $Ax = b$, pero debemos contar con un método que permita resolve los sistemas lineales más pequeños que se describen en los numerales 1. y 2.
+
+**Algoritmo de One-Sided Jacobi para descomposición SVD**
+
+La factorización SVD de una matriz $A\in \mathbb{R}^m \times \mathbb{R}^n$, consiste en encontrar matrices $U \in \mathbb{R}^m \times \mathbb{R}^n$, $\Sigma \in \mathbb{R}^n \times \mathbb{R}^n$ y  $V \in \mathbb{R}^m \times \mathbb{R}^n$
+
+Esta se puede aproximar con un método iterativo conocido como el **algoritmo One-Sided Jacobi** que se basa en la aplicación sucesiva de rotaciones de Givens, para ortogonalizar las columnas de las matrices involucradas, así como estimar los respectivos valores singulares.
+
+
 
 Por tales motivos, este proyecto también aborda la implementación del **algoritmo One-Sided Jacobi** para aproximar numéricamente la descomposición en valores singulares de una matriz (SVD, por sus siglas en ingles), aprovechando sus propiedades para resolver un sistema lineal específico, junto con su aplicación inmediata para llevar a cabo el método de eliminación por bloques.
 
-En este sentido, el proyecto gira en torno a los siguientes ejes:
+En este sentido, el proyecto gira en torno al desarrollo de siguientes ejes:
 
-1. **Algoritmo One-sided Jacobi y descomposición SVD** [pendiente: desarrollo]
-2. **Complemento de Schur** [pendiente: desarrollo].
-3. **Método de eliminación por bloques para resolver sistemas lineales** [pendiente: desarrollo].
-
-
-
-
+1. 
+2. **Algoritmo One-sided Jacobi y descomposición SVD:** 
+3. **Solver de sistemas lineales a partir**
+4. **Método de eliminación por bloques para resolver sistemas lineales:** [pendiente: desarrollo].
 
 ## Flujo de trabajo en Github
 
@@ -59,25 +75,6 @@ docker run --rm -v ($pwd):/datos --name jupyterlab_r_kernel_local -p 8888:8888 -
 ```
 
 Con ello se habilitó la posibilidad de realizar el trabajo mediante *Jupyter Notebooks*.
-
-
-
-Para probar el código implementado sobre una matriz de dimensiones $10^4 \times 10^4$, usamos una instancia de AWS EC2, en donde se a su vez se guardaron los resultados obtenidos.
-
-```bash
-Infrastructure: AWS
-
-+ AMI: RStudio-1.2.1335_R-3.6.0_CUDA-10.0_cuDNN-7.5.1_ubuntu-18.04-LTS-64bit - ami-0226a8af83fcecb43
-+ EC2 instance: t2.2xlarge
-    + vCPU: 8
-    + RAM: 32 GB
-+ OS: ubuntu 18.04 LTS
-+ Volumes: 1
-    + Type: gp2
-    + Size: 20 GB
-```
-
-*Nota:* Instancia considerada bajo las indicaciones de la referencia https://towardsdatascience.com/how-to-run-rstudio-on-aws-in-under-3-minutes-for-free-65f8d0b6ccda
 
 ## Project Organization
 
