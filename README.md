@@ -7,6 +7,10 @@ El propósito de este proyecto es consolidar una **implementación del método d
 
 1. [Introduction](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar/blob/master/README.md#introducción)
 2. [Overview](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar/blob/master/README.md#overview)
+3. [Organización del equipo](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar#organización)
+4. [Flujo de trabajo en Github](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar#flujo-de-trabajo-en-github)
+5. [Requerimiento de infraestructura](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar#requerimientos-de-infraestructura)
+6. [Organizacion del proyecto](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar#organización-del-proyecto)
 
 ## Introducción 
 
@@ -105,9 +109,9 @@ Con ello se habilitó la posibilidad de realizar el trabajo mediante sucesivos *
 
 La organización del proyecto se realizó a través una serie de carpetas, entre las cuales destacan:
 
-+ **jupyter:** implementación del método de eliminación por bloques para resolver sistemas lineales, usando el solver que emplea la descomposición SVD de los sistemas lineales inducidos por los bloques (según lo descrito en numerales 1 a 4 del **Roadmap** mencionado en el apartado de [Overview](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar/blob/master/README.md#overview)). Cabe destacar que éste fue modificado a raíz de los reportes de revisión del **E-Rev** (ver siguiente carpeta).
-+ **test:** contiene una serie de reportes de revisión del código desarrollado por  **E-Prog** (ver carpeta previa), en formato **Jupyter Notebooks** sobre del código implementado en la carpeta *jupyter*, incluyendo las pruebas realizadas, así como los principales, hallazgos y sugerencias.
-+ **results**: incluye el reporte ejecutivo de resultados obtenidos con la implementación del método de eliminación por bloques para resolver sistemas lineales, usando el solver que emplea la descomposición SVD de los sistemas lineales inducidos por los bloques, junto con una subcarpeta de experimentos numéricos que le dan sustento.
++ **jupyter:** [reporte de implementación](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar/blob/master/jupyter/Ex_CM_SVD.ipynb) del método de eliminación por bloques para resolver sistemas lineales, usando el solver que emplea la descomposición SVD de los sistemas lineales inducidos por los bloques (según lo descrito en numerales 1 a 4 del **Roadmap** mencionado en el apartado de [Overview](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar/blob/master/README.md#overview)). Cabe destacar que éste fue modificado a raíz de los reportes de revisión del **E-Rev** (ver siguiente carpeta).
++ **test:** contiene una serie de [reportes de revisión](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar/tree/master/test) del código desarrollado por  **E-Prog** (ver carpeta previa), en formato **Jupyter Notebooks** sobre del código implementado en la carpeta *jupyter*, incluyendo las pruebas realizadas, así como los principales, hallazgos y sugerencias.
++ **results**: incluye el [reporte ejecutivo de resultados](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-svd-czammar/blob/master/results/Reporte_resultados.ipynb) obtenidos con la implementación del método de eliminación por bloques para resolver sistemas lineales, usando el solver que emplea la descomposición SVD de los sistemas lineales inducidos por los bloques, junto con una subcarpeta de experimentos numéricos que le dan sustento.
 
 En complemento, se presenta una version esquemática de la organización de repositorio del proyecto:
 
