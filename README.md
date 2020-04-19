@@ -117,23 +117,35 @@ En complemento, se presenta una versión esquemática de la organización de rep
 
 ```bash
 ├── OLD_README.md           <- Archivo readme del examen
+│
 ├── README.md               <- Archivo readme del proyecto
+│
 ├── References              <- Carpeta de referencias y materiales usados en el proyecto
-│   ├── 2015-02_Becka_Oksa_Vajtersic.pdf
+│   ├── 2015-02_Becka_Oksa_Vajtersic.pdf <- articulo consultado
 │   ├── 3.3.d.SVD.ipynb     <- Notas sobre SVD del curso MNO 2020
 │   ├── Images              <- Carpeta de imágenes
 │   ├── Minutas             <- Minutas de reuniones entre E-Prog, E-Rev y PM
 │   ├── Readme.md           <- Archivo readme de carpeta references
-│   └── Simplified_SVD_OneSidedJacobi_Algorithm.md <- Draft sobre implementación
+│   └── Simplified_SVD_OneSidedJacobi_Algorithm.md  <- Draft sobre implementación
+│
 ├── images                  <- Carpeta de imágenes para readme
-├── jupyter                 <- Carpeta de implementación desarrollada por E-Prog
-│   └── Ex_CM_SVD.ipynb     <- Implementación de metodos de Roadmap
+│
+├── jupyter                 <- Carpeta Reporte de de implementación desarrollada por E-Prog
+│   └── Ex_CM_SVD.ipynb     <- Reporte de métodos de Roadmap
+│
 ├── results                 <- Carpeta de reporte ejecutivo de resultados
 │   ├── Reporte_resultados.ipynb    <- Reporte ejecutivo de resultados
 │   ├── experimentos        <- Carpeta de experimentos para reporte de resultados
+│       ├── Experimento_1.ipynb
+│       ├── Experimento_2.ipynb
+│       ├── Experimento_3.ipynb
+│       ├── Experimento_4.ipynb
+│       ├── Experimento_5.ipynb
+│       ├── Experimento_6.ipynb
 │       ├── 00-load.R       <- Script de funciones de Eliminacion por Bloques y Solver SVD
 │       └── utils.R         <- Script de funciones auxiliares de E-Prog
-└── test       <- Carpeta de reportes de revision E-Rev
+│
+└── test                    <- Carpeta de reportes de revision E-Rev
     ├── Rev_EliminacionXBloques_SVD.ipynb
     ├── Rev_FuncionSigno.ipynb
     ├── Rev_GeneracionIndices.ipynb
